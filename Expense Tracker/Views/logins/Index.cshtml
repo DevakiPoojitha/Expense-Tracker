@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Expense_Tracker.Models.login>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<style>
+    td{
+        color:white;
+    }
+
+    th{
+        color: white;
+    }
+   
+</style>
+<h4>Sucessfully Login</h4>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
+            <th style="display:none">
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+                <td style="display:none">
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+        
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
